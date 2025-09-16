@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		body {
+			background: pink;
+		}
+
+		.modal-open {
+			overflow: hidden;
+		}
+
+		.content {
+			height: 9000px;
+			width: 100%;
+		}
+
+		.overlay {
+			display: none;
+		}
+
+		.modal-open .overlay {
+			display: block;
+			inset: 0;
+			position: fixed;
+			background: cyan;
+			overflow-y: auto;
+		}
+
+		.overlay .content {
+			height: 110%;
+		}
+	</style>
+</head>
+<body>
+	<button onclick="document.body.classList.toggle('modal-open')">
+		toggle modal
+	</button>
+	
+	<div class="content">
+		.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>
+	</div>
+	
+	<div class="overlay">
+		<button onclick="document.body.classList.toggle('modal-open')">
+			toggle modal
+		</button>
+	
+		<div class="content">
+			.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>
+		</div>
+	</div>
+</body>
+</html>
