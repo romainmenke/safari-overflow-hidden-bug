@@ -6,6 +6,12 @@
 
 	<title>Safari overflow hidden bug</title>
 	
+	<script>
+		window.addEventListener('scroll', function () {
+			document.getElementById('scroll-top-value').innerText = document.documentElement.scrollTop;
+		});
+	</script>
+
 	<style>
 		button {
 			font-size: 1.5rem;
@@ -16,7 +22,7 @@
 			color: black;
 		}
 
-		body.is-showing-modal-dialog {
+		html.is-showing-modal-dialog {
 			overflow: hidden;
 		}
 
@@ -39,7 +45,7 @@
 		.modal-dialog[data-state="opening"] .modal-dialog__content,
 		.modal-dialog[data-state="open"] .modal-dialog__content,
 		.modal-dialog[data-state="closing"] .modal-dialog__content {
-			background-color: yellow;
+			background-color: pink;
 			position: fixed;
 			inset: 0;
 			z-index: 1;
@@ -48,6 +54,14 @@
 		.modal-dialog[data-state="open"] .modal-dialog__content {
 			display: block;
 			opacity: 1;
+		}
+
+		#scroll-top-value {
+			position: fixed;
+			bottom: 16px;
+			right: 16px;
+			width: 200px;
+			z-index: 1000;
 		}
 	</style>
 </head>
@@ -61,7 +75,7 @@
 					</h1>
 				</hgroup>
 
-				<button onclick="document.getElementById('navigation-overlay-a1').setAttribute('data-state', 'open')">
+				<button onclick="document.getElementById('navigation-overlay-a1').setAttribute('data-state', 'open'); document.documentElement.classList.add('is-showing-modal-dialog')">
 					Open Overlay
 				</button>
 
@@ -75,7 +89,7 @@
 	<div aria-label="Overlay" aria-modal="true" class="modal-dialog" id="navigation-overlay-a1"
 		role="dialog" tabindex="-1">
 		<div class="modal-dialog__content">
-			<button onclick="document.getElementById('navigation-overlay-a1').setAttribute('data-state', 'closed')">
+			<button onclick="document.getElementById('navigation-overlay-a1').setAttribute('data-state', 'closed'); document.documentElement.classList.remove('is-showing-modal-dialog')">
 				Close overlay
 			</button>
 			
@@ -84,5 +98,7 @@
 			Some overlay content
 		</div>
 	</div>
+
+	<div id="scroll-top-value"></div>
 </body>
 </html>
