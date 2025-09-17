@@ -10,3 +10,5 @@
 
 When the overlay is open I expect the page to not be able to scroll.  
 Instead the page scrolls underneath the overlay, despite having `overflow` set to `hidden`
+
+For a screen recording see: https://github.com/romainmenke/safari-overflow-hidden-bug/issues/1
