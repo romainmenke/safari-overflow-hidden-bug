@@ -9,6 +9,7 @@
 -----
 
 When the overlay is open I expect the page to not be able to scroll.  
+This is indicated by the number on screen which displays the current value of `document.documentElement.scrollTop`.  
 Instead the page scrolls underneath the overlay, despite having `overflow` set to `hidden`
 
 For a screen recording see: https://github.com/romainmenke/safari-overflow-hidden-bug/issues/1
